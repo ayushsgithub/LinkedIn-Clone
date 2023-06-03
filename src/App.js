@@ -30,7 +30,7 @@ function App() {
         dispatch(logout())
       }
     })
-  }, [])
+  }, [dispatch])
 
 
   return (
@@ -45,8 +45,6 @@ function App() {
           <Widgets />
       </div>
       )}
-      
-      
     </div>
   );
 }
