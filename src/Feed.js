@@ -25,8 +25,8 @@ function Feed() {
       db.collection("posts").orderBy("timestamp", "desc").onSnapshot(snapshot => (
         setPosts(snapshot.docs.map(doc => (
           {
-              id: doc.id,
-              data: doc.data(),
+              id: doc?.id,
+              data: doc?.data(),
           }
         )))
       ))
@@ -67,7 +67,7 @@ function Feed() {
 
         {/* Posts */}
         <FlipMove>
-        {posts.map(({ id, data: { name, description, message, photoUrl }}) => (
+        {posts?.map(({ id, data: { name, description, message, photoUrl }}) => (
             <Post 
               key={id}
               name={name}

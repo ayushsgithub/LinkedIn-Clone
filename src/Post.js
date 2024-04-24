@@ -11,15 +11,15 @@ const Post = forwardRef(({ name, description, message, photoUrl }, ref) => {
   return (
     <div ref={ref} className='post'>
         <div className="post-header">
-            <Avatar src={photoUrl}>{name[0]}</Avatar>
+            {photoUrl ? <Avatar src={photoUrl}>{name[0]}</Avatar> : <Avatar></Avatar>}
             <div className="post-info">
-                <h2>{name}</h2>
-                <p>{description}</p>
+                {name ? <h2>{name}</h2> : <h2>{description}</h2>}
+                {description && <p>{description}</p>}
             </div>
         </div>
 
         <div className="post-body">
-            <p>{message}</p>
+            {message && <p>{message}</p>}
         </div>
         <div className="post-buttons">
             <InputOptions Icon={ThumbUpAltOutlinedIcon} title="Like" color="gray"/>
